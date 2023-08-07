@@ -17,7 +17,6 @@ export function CartProvider({ children }) {
 
     function getProductQuantity(id) {
         const quantity = cartProducts.find((product) => product.id === id)?.quantity;
-
         if (quantity === undefined) {
             return 0;
         }
@@ -31,6 +30,7 @@ export function CartProvider({ children }) {
         if (quantity === 0) {
             // product is not in cart
             const productData = getProductData(id);
+            console.log("Product Data:", productData);
             if (productData) {
                 setCartProducts([
                     ...cartProducts,
@@ -81,13 +81,13 @@ export function CartProvider({ children }) {
         cartProducts.forEach((cartItem) => {
             const productData = getProductData(cartItem.id);
             if (productData) {
-                console.log("Price " + productData.price);
+                console.log("productData "+productData);
+                console.log("price"+cartItem.id)
                 totalCost += productData.price * cartItem.quantity;
             }
         });
         return totalCost;
     }
-    
 
     const contextValue = {
         items: cartProducts,

@@ -25,7 +25,7 @@ function CartProduct(props) {
 
     return (
         <>
-            <h3>{productData.name}</h3>
+            <h3>{productData.title}</h3>
             <p>Quantity: {quantity}</p>
             <p>Price Ksh: {productData.price}</p>
             <p>Total: Ksh: {(quantity * productData.price).toFixed(2)}</p>
