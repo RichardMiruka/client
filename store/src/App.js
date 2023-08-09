@@ -15,6 +15,7 @@ import LipaNaMpesaComponent from './pages/LipaNaMpesaComponent';
 import ContactUs from './pages/ContactUs';
 import FAQS from './pages/FAQS';
 import ProductDetail from './pages/ProductDetail';
+import AddProduct from './components/AddProduct';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="contact" element={<ContactUs />} />
             <Route path="product/:id" element={<ProductDetail/>} />
             <Route path="faqs" element={<FAQS />} />
+            <Route path="add-product" element={<AddProduct />} />
           </Routes>
         </Container>
       </BrowserRouter>

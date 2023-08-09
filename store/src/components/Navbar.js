@@ -33,7 +33,8 @@ function NavbarComponent() {
                 <Navbar.Collapse>
                     <Nav className="mr-auto">
                         <Nav.Link href="/contact">Contact Us</Nav.Link>
-                        <Nav.Link href="/faqs">FAQ</Nav.Link>
+                        <Nav.Link href="/faqs">FAQs</Nav.Link>
+                        <Nav.Link href="/add-product">Add Product</Nav.Link> 
                     </Nav>
                 </Navbar.Collapse>
                 <Button onClick={handleShow} className="ml-auto">Cart ({productsCount} Items)</Button>

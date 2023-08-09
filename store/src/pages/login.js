@@ -18,8 +18,9 @@ const LoginPage = ({ onLogin }) => {
   }
   );
   const data=await response.json()
+  console.log('Login Response Data:', data['access-token']);
   if (response.ok){
-    localStorage.setItem("token",data['access_token'])
+    localStorage.setItem("token",data['access-token'])
     navigate('/store')
   }
   else{

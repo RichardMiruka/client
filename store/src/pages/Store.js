@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col} from 'react-bootstrap';
 import ProductCard from '../components/ProductCard';
+import jwtDecode from 'jwt-decode';
 import './Store.css';
 function Store() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const accessToken = localStorage.getItem('token');
+
+  const decodedToken = jwtDecode(accessToken);
+  const userId = decodedToken.user_id;
+  console.log(userId)
 
   useEffect(() => {
     fetchProducts();
@@ -12,7 +18,11 @@ function Store() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/products");
+      const response = await fetch("http://localhost:5000/api/v1/products",{
+      headers:{
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
       const data = await response.json();
       setProducts(data.data);
     } catch (error) {

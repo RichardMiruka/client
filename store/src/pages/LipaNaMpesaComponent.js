@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Button, Form, FormControl, FormGroup } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
 import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate
-
+import jwtDecode from 'jwt-decode';
 function LipaNaMpesaComponent() {
   const [amount, setAmount] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -11,6 +11,14 @@ function LipaNaMpesaComponent() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const totalAmount = queryParams.get('total');
+
+  const accessToken = localStorage.getItem('token');
+  console.log(accessToken);
+
+  // Decode the JWT token to get user_id
+  const decodedToken = jwtDecode(accessToken);
+  const userId = decodedToken.usertype;
+  console.log("userid"+userId)
   useState(() => {
     if (totalAmount) {
       setAmount(totalAmount);
