@@ -1,8 +1,16 @@
-
+import React from 'react';
+import { FaTimesCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import './FailedPage.css';
 function Cancel() {
     return (
-        <h1>Sorry to see you cancelled your Stripe payment!</h1>
-    )
+        <div className="error-container">
+          <FaTimesCircle className="error-icon" />
+          <p className="error-message">Payment Failed</p>
+          <p>Sorry, the payment was not successful.</p>
+          <Link to="/" className="back-to-home">Back to Home</Link>
+        </div>
+      );
 }
 
 export default Cancel;

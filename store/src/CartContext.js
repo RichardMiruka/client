@@ -76,18 +76,20 @@ export function CartProvider({ children }) {
         );
     }
 
-    function getTotalCost() {
+    async function getTotalCost() {
         let totalCost = 0;
-        cartProducts.forEach((cartItem) => {
-            const productData = getProductData(cartItem.id);
+    
+        for (const cartItem of cartProducts) {
+            const productData = await getProductData(cartItem.id);
+            
             if (productData) {
-                console.log("productData "+productData);
-                console.log("price"+cartItem.id)
                 totalCost += productData.price * cartItem.quantity;
             }
-        });
+        }
+    
         return totalCost;
     }
+    
 
     const contextValue = {
         items: cartProducts,

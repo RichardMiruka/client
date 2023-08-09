@@ -1,0 +1,35 @@
+/* ContactUs.css */
+.contact-us-container {
+    padding: 50px 0;
+}
+
+.contact-us-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info strong {
+    color: #333;
+}
+
+.contact-info address {
+    margin-top: 10px;
+}
+
+.contact-info p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        padding: 15px;
+    }
+}

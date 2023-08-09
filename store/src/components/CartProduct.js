@@ -1,6 +1,8 @@
+// CartProduct.js
+
+import React, { useContext, useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../CartContext";
-import { useContext, useEffect, useState } from "react";
 import { getProductData } from "../productsStore";
 
 function CartProduct(props) {
@@ -10,7 +12,6 @@ function CartProduct(props) {
     const [productData, setProductData] = useState(null);
 
     useEffect(() => {
-        // Fetch the product data when the component mounts
         const fetchData = async () => {
             const data = await getProductData(id);
             setProductData(data);
@@ -19,20 +20,27 @@ function CartProduct(props) {
     }, [id]);
 
     if (!productData) {
-        // Product data is not available yet, display a loading message or return null
         return <p>Loading...</p>;
     }
 
     return (
-        <>
-            <h3>{productData.title}</h3>
-            <p>Quantity: {quantity}</p>
-            <p>Price Ksh: {productData.price}</p>
-            <p>Total: Ksh: {(quantity * productData.price).toFixed(2)}</p>
-            <Button size="sm" onClick={() => cart.deleteFromCart(id)}>Remove</Button>
-            <hr></hr>
-        </>
-    )
+        
+        <div>
+            <table className="table">
+            <tr>
+            <td>{productData.id}</td>
+            <td>{productData.name}</td>
+            <td>{quantity} X {productData.price}</td>
+            <td>Total: Ksh {(quantity * productData.price).toFixed(2)}</td>
+            <td><Button size="sm" className="btn btn-warning" onClick={() => cart.deleteFromCart(id)}>Remove</Button></td>
+        </tr>
+            </table>
+            
+        </div>
+       
+        
+        
+    );
 }
 
 export default CartProduct;

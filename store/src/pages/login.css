@@ -15,14 +15,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 300px;
+    max-width: 500px;
     margin: 0 auto;
-    background-color: rgb(237, 177, 177);
+    background-color: rgb(39, 205, 72);
     color: white;
     /* position:; */
     transform: translate(-50%, );
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding:10px 30px;
   }
   
 /*   
