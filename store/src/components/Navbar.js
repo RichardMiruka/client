@@ -16,8 +16,8 @@ function NavbarComponent() {
     const [total, setTotal] = useState(null);
     const accessToken = localStorage.getItem('token');
 
-    const decodedToken = jwtDecode(accessToken);
-    const usertype = decodedToken.usertype;
+    const decodedToken = accessToken ? jwtDecode(accessToken) : null;
+    const usertype = decodedToken?.usertype;
 
     useEffect(() => {
         cart.getTotalCost().then(total => {
@@ -32,8 +32,8 @@ function NavbarComponent() {
         navigate(`/mpesa?total=${total}`);
     };
 
-    const showAddProductCartNavLinks = !['/', '/login', '/register','/contact','/faqs'].includes(location.pathname);
-    const showContactAndFAQsNavLinks = ['/', '/login', '/register','/contact','/faqs','/add-product','/store'].includes(location.pathname);
+    const showAddProductCartNavLinks = !['/', '/login', '/register', '/contact', '/faqs'].includes(location.pathname);
+    const showContactAndFAQsNavLinks = ['/', '/login', '/register', '/contact', '/faqs', '/add-product', '/store'].includes(location.pathname);
 
     return (
         <>
