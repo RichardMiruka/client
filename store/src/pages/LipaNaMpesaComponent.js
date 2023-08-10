@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Button, Form, FormControl, FormGroup } from 'react-bootstrap';
 import { CartContext } from '../CartContext';
-import { useNavigate, useLocation } from 'react-router-dom'; // Import useNavigate
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 function LipaNaMpesaComponent() {
   const [amount, setAmount] = useState('');
@@ -97,7 +97,9 @@ function LipaNaMpesaComponent() {
         <Button onClick={handlePaymentSubmit} variant="primary" style={{ marginTop: '10px' }}>
           Pay Online
         </Button>
-      </Form>
+          </Form>
+          <button className='btn btn-warning'><Link to="/store" className="back-to-home">continue Shopping</Link></button>
+    
     </div>
   );
 }

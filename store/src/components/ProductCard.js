@@ -10,7 +10,7 @@ function ProductCard(props) {
   const cart = useContext(CartContext);
   const productQuantity = cart.getProductQuantity(product.id);
   console.log(cart.items);
-
+console.log(typeof product.avg_rating)
   return (
     <Card>
       <Card.Body>

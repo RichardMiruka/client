@@ -61,9 +61,9 @@ function ProductDetail() {
   }
 
   return (
-    <Card className="product-card">
+    <Card className="product">
       <Link to={`/product/${product.id}`}>
-        <Card.Img variant="top" src={product.image} alt={product.name} />
+        <Card.Img variant="top" src={product.image} alt={product.name} style={{ width:'400px',height: '300px',padding:'20px' }} />
       </Link>
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
@@ -72,6 +72,20 @@ function ProductDetail() {
         <Card.Text>Pickup Location: {product.location}</Card.Text>
         <Card.Text>In stock: {product.quantity}</Card.Text>
         <Button variant="primary" onClick={() => setShowModal(true)}>Give Review</Button>
+        <hr></hr>
+          {/* Display Average Rating */}
+          {product.avg_rating && <Card.Text>Average Rating: {product.avg_rating}</Card.Text>}
+        {/* Display Comments and Usernames */}
+        <div>
+          <h5><b>User Comments:</b></h5>
+          <ul>
+            {product.comments.map((comment, index) => (
+              <li key={index}>
+                <strong>{comment.user_username}</strong>: {comment.comment}
+              </li>
+            ))}
+          </ul>
+        </div>
       </Card.Body>
 
       {/* Review Modal */}
@@ -107,6 +121,7 @@ function ProductDetail() {
           <Button variant="primary" onClick={handleReviewSubmit}>Submit</Button>
         </Modal.Footer>
       </Modal>
+      <button className='btn btn-warning'><Link to="/store" className="back-to-home">continue Shopping</Link></button>
     </Card>
   );
 }
