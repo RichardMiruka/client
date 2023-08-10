@@ -18,7 +18,7 @@ function Store() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/products",{
+      const response = await fetch("https://ecogreen.onrender.com/api/v1/products",{
       headers:{
         Authorization: `Bearer ${accessToken}`
       }

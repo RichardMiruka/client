@@ -40,7 +40,7 @@ function LipaNaMpesaComponent() {
         phone: phoneNumber,
       };
 
-      const response = await fetch('http://localhost:5000/pay', {
+      const response = await fetch('https://ecogreen.onrender.com/pay', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ function AddProduct() {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/v1/products/create", {
+            const response = await fetch("https://ecogreen.onrender.com/api/v1/products/create", {
                 method: 'POST',
                 body: formData
             });
