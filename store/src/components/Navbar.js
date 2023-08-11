@@ -1,6 +1,6 @@
 import { Button, Navbar, Nav, Modal } from 'react-bootstrap';
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation ,Link} from 'react-router-dom';
 import { CartContext } from '../CartContext';
 import CartProduct from './CartProduct';
 import jwtDecode from 'jwt-decode';
@@ -44,13 +44,13 @@ function NavbarComponent() {
                     <Nav className="mr-auto">
                         {showContactAndFAQsNavLinks && (
                             <>
-                                <Nav.Link href="/contact">Contact Us</Nav.Link>
-                                <Nav.Link href="/faqs">FAQs</Nav.Link>
+                                <Link to="/contact" style={{ color: '#333', textDecoration: 'none', marginRight: '10px', fontWeight: 'bold' }}>Contact Us</Link>
+                                <Link to="/faqs" style={{ color: '#333', textDecoration: 'none', marginRight: '10px', fontWeight: 'bold' }}>FAQs</Link>
                             </>
                         )}
                         {showAddProductCartNavLinks && (
                             <>
-                                {usertype === 'farmer' && <Nav.Link href="/add-product">Add Product</Nav.Link>}
+                                {usertype === 'farmer' && <Link to="/add-product" style={{ color: '#333', textDecoration: 'none', marginRight: '10px', fontWeight: 'bold' }}>Add Product</Link>}
                             </>
                         )}
                     </Nav>
