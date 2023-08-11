@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {Link} from 'react-router-dom'
 function AddProduct() {
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -12,7 +12,8 @@ function AddProduct() {
         setImage(e.target.files[0]);
     };
 
-    const handleAddProduct = async () => {
+    const handleAddProduct = async (e) => {
+        e.preventDefault();
         const formData = new FormData();
         formData.append('name', name);
         formData.append('price', price);
@@ -73,7 +74,10 @@ function AddProduct() {
 
             <div className='btn btn-primary'><button onClick={handleAddProduct}>Add Product</button></div>
             </form>
+            <button className='btn btn-warning'><Link to="/store" className="back-to-home">continue Shopping</Link></button>
+    
         </div>
+        
         
     );
 }

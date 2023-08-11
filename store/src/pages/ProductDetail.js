@@ -45,7 +45,7 @@ function ProductDetail() {
         // Review successfully submitted
         // You can handle any further logic or state updates here
         console.log('Review submitted successfully');
-        setShowModal(false); // Close the modal
+        setShowModal(false); 
       } else {
         // Handle error scenario
         console.error('Error submitting review');

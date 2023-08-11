@@ -7,7 +7,7 @@ function Success() {
           <FaCheckCircle className="success-icon" />
           <h2>Payment Request Successful</h2>
           <p>Success. Your Request accepted for processing. complete the promt  andwait for an SMS from MPESA shortly</p>
-          <Link to="/" className="back-to-home">Back to Home</Link>
+          <button className='btn btn-warning'><Link to="/store" className="back-to-home">continue Shopping</Link></button>
         </div>
       );
 }
