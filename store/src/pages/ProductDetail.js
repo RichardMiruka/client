@@ -3,14 +3,17 @@ import { useParams, Link } from 'react-router-dom';
 import { getProductData } from "../productsStore";
 import './ProductDetails.css'; 
 import { Card, Button, Modal, Form } from 'react-bootstrap';
-
+import jwtDecode from 'jwt-decode';
 function ProductDetail() {
   const { id } = useParams(); // Get the id parameter from the route
   const [product, setProduct] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [rating, setRating] = useState(1);
   const [comments, setComments] = useState('');
+  const accessToken = localStorage.getItem('token');
 
+  const decodedToken = accessToken ? jwtDecode(accessToken) : null;
+  const userid = decodedToken?.user_id;
   useEffect(() => {
     async function fetchData() {
       const productData = await getProductData(id);
@@ -28,7 +31,7 @@ function ProductDetail() {
     try {
       const requestData = {
         product_id: product.id,
-        user_id: 1, // Replace with the actual user ID
+        user_id: userid, 
         comment: comments,
         rating: parseInt(rating),
       };
@@ -45,7 +48,7 @@ function ProductDetail() {
         // Review successfully submitted
         // You can handle any further logic or state updates here
         console.log('Review submitted successfully');
-        setShowModal(false); 
+        setShowModal(false); // Close the modal
       } else {
         // Handle error scenario
         console.error('Error submitting review');
