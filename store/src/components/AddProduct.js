@@ -12,6 +12,7 @@ function AddProduct() {
         setImage(e.target.files[0]);
     };
 
+    
     const handleAddProduct = async (e) => {
         e.preventDefault();
         const formData = new FormData();
